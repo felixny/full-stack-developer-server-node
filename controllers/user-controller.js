@@ -37,7 +37,7 @@ const findUsersByType = (type) => {
        resarray.push(res[i].username);
        /* console.log(resarray); */
     }
-    /* console.log(resarray); */
+    console.log(resarray);
     return resarray;
 }
 
