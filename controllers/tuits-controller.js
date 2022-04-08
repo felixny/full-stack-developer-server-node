@@ -37,9 +37,9 @@ const updateTuit = async (req, res) => {
 
 const createTuit = async (req, res) => {
     const newTuit = req.body;
+    console.log('new tuit', newTuit);
     const insertedTuit = await tuitsDao.createTuit(newTuit);
-    console.log(insertedTuit);
-    console.log(newTuit);
+    console.log('inserted Tuit', insertedTuit);
     res.json(insertedTuit);
 
 }
