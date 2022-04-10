@@ -5,8 +5,9 @@ import tuitsController from "./controllers/tuits-controller.js";
 import cors from 'cors';
 import mongoose from "mongoose";
 
-mongoose.connect('mongodb://0.0.0.0:27017/webdev');
+/* mongoose.connect('mongodb://0.0.0.0:27017/webdev'); */
 
+mongoose.connect('mongodb+srv://webdev5610:jubilo123@cluster0.nmz9f.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
 
 const app = express();

@@ -38,34 +38,18 @@ const updateTuit = async (req, res) => {
 const createTuit = async (req, res) => {
     const newTuit = req.body;
     console.log('new tuit', newTuit);
+    const first = newTuit.tuit.split(' ')[0]
+    newTuit.likes = Math.floor(Math.random() * 1000);
+    newTuit.dislikes = Math.floor(Math.random() * 1000);
+    newTuit.handle = first;
+    newTuit['postedBy'] = {
+        username: newTuit.handle
+    }
     const insertedTuit = await tuitsDao.createTuit(newTuit);
     console.log('inserted Tuit', insertedTuit);
     res.json(insertedTuit);
 
 }
-
-
-
-/* const findAllTuits = (req, res) => {
-    res.json(tuits);
-} */
-
-
-
-/* const updateTuit = (req, res) => {
-    const tuitdIdToUpdate = req.params.tid;
-    const updatedTuit = req.body;
-    tuits = tuits.map(t => t._id === tuitdIdToUpdate ? updatedTuit : t);
-    res.sendStatus(200);
-}
- */
-
-
-/* const deleteTuit = (req, res) => {
-    const tuitdIdToDelete = req.params.tid;
-    tuits = tuits.filter(t => t._id !== tuitdIdToDelete);
-    res.sendStatus(200);
-} */
 
 export default (app) => {
     app.post('/api/tuits', createTuit);
